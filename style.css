@@ -1,0 +1,77 @@
+/* Style for the body to center the SVG */
+body {
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f0f0f0; /* Light background color */
+  }
+  
+  /* Style for the SVG element */
+  svg {
+    width: 100px; /* Set the width of the SVG */
+    height: 100px; /* Set the height of the SVG */
+  }
+  
+  /* Keyframes for the heart "blink" animation */
+  @keyframes blink {
+    0% {
+      opacity: 0; /* Start with invisible heart */
+      transform: scale(0); /* Start with heart scaled down */
+    }
+    60% {
+      opacity: 0; /* Keep heart invisible */
+      transform: scale(0); /* Keep heart scaled down */
+    }
+    70% {
+      opacity: 1; /* Make heart fully visible */
+      transform: scale(1.0); /* Scale heart to original size */
+    }
+    75% {
+      opacity: 1; /* Keep heart fully visible */
+      transform: scale(1.0); /* Keep heart at original size */
+    }
+    80% {
+      opacity: 1; /* Keep heart fully visible */
+      transform: scale(1.7); /* Scale heart up to 1.7 times */
+    }
+    85% {
+      opacity: 1; /* Keep heart fully visible */
+      transform: scale(1.0); /* Scale heart back to original size */
+    }
+    100% {
+      opacity: 0; /* Make heart invisible again */
+      transform: scale(1.8); /* Scale heart up slightly more */
+    }
+  }
+  
+  /* Style for the heart rate line */
+  svg path#line {
+    fill: none; /* No fill color */
+    stroke: #e00000; /* Red color for the line */
+    stroke-width: 2; /* Line thickness */
+    stroke-linecap: butt; /* Line cap style */
+    stroke-linejoin: round; /* Line join style */
+    stroke-miterlimit: 4; /* Miter limit for the line */
+    stroke-dasharray: 1; /* Dash pattern for the line */
+    stroke-dashoffset: 1; /* Offset for the dashes */
+    stroke-opacity: 1; /* Line opacity */
+    animation: dash 4s linear infinite; /* Animation for the line */
+  }
+  
+  /* Style for the heart shape */
+  svg path#heart {
+    fill: red; /* Red color for the heart */
+    transform-origin: 50% 50%; /* Origin for scaling the heart */
+    animation: blink 4s linear infinite; /* Heart animation */
+  }
+  
+  /* Keyframes for the line animation */
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 10; /* Start with offset */
+    }
+    100% {
+      stroke-dashoffset: -10; /* End with negative offset */
+    }
+  }
